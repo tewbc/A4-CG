@@ -18,11 +18,11 @@ public:
     uint16_t PM_2_5;
     uint16_t PM_10_0;
 
-	// Number of particle
-	  uint16_t PM_NUM_0_3;
+    // Number of particle
+    uint16_t PM_NUM_0_3;
     uint16_t PM_NUM_0_5;
     uint16_t PM_NUM_1_0;
-	  uint16_t PM_NUM_2_5;
+    uint16_t PM_NUM_2_5;
     uint16_t PM_NUM_5_0;
     uint16_t PM_NUM_10_0;
   };
