@@ -4,3 +4,4 @@ Dust sensor yeetec: A4-CG
 As quick modified his code, I've not changed the code much for using the Yeetec A4-CG dust sensor, 
 because it's very identical to the PMS x003 for the data and command too. I've done only changing the command byte and some bytes checked 
 for reading the dataframe of sensor.
+This code use with the Mega 2560 for the A4-CG that connected on Serial1.
