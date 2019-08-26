@@ -126,17 +126,17 @@ void A4CG::loop()
           _status = STATUS_OK;
 
           // Standard Particles, CF=1.
-          _data->PM_SP_UG_1_0 = makeWord(_payload[0], _payload[1]);
-          _data->PM_SP_UG_2_5 = makeWord(_payload[2], _payload[3]);
-          _data->PM_SP_UG_10_0 = makeWord(_payload[4], _payload[5]);
+          _data->PM_1_0 = makeWord(_payload[0], _payload[1]);
+          _data->PM_2_5 = makeWord(_payload[2], _payload[3]);
+          _data->PM_10_0 = makeWord(_payload[4], _payload[5]);
 
 		//Number of particles
-		_data->PM_NUM_UG_0_3 = makeWord(_payload[6], _payload[7]);
-		_data->PM_NUM_UG_0_5 = makeWord(_payload[8], _payload[9]);
-		_data->PM_NUM_UG_1_0 = makeWord(_payload[10], _payload[11]);
-		_data->PM_NUM_UG_2_5 = makeWord(_payload[12], _payload[13]);
-		_data->PM_NUM_UG_5_0 = makeWord(_payload[14], _payload[15]);
-		_data->PM_NUM_UG_10_0 = makeWord(_payload[16], _payload[17]);
+		_data->PM_NUM_0_3 = makeWord(_payload[6], _payload[7]);
+		_data->PM_NUM_0_5 = makeWord(_payload[8], _payload[9]);
+		_data->PM_NUM_1_0 = makeWord(_payload[10], _payload[11]);
+		_data->PM_NUM_2_5 = makeWord(_payload[12], _payload[13]);
+		_data->PM_NUM_5_0 = makeWord(_payload[14], _payload[15]);
+		_data->PM_NUM_10_0 = makeWord(_payload[16], _payload[17]);
 		}
 
         _index = 0;
