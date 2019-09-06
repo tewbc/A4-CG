@@ -18,11 +18,11 @@ public:
     uint16_t PM_2_5;
     uint16_t PM_10_0;
 
-    // Number of particle
-    uint16_t PM_NUM_0_3;
+	// Number of particle
+	uint16_t PM_NUM_0_3;
     uint16_t PM_NUM_0_5;
     uint16_t PM_NUM_1_0;
-    uint16_t PM_NUM_2_5;
+	uint16_t PM_NUM_2_5;
     uint16_t PM_NUM_5_0;
     uint16_t PM_NUM_10_0;
   };
@@ -32,6 +32,7 @@ public:
   void wakeUp();
   void activeMode();
   void passiveMode();
+  void setScale(float setc);
 
   void requestRead();
   bool read(DATA& data);
@@ -41,7 +42,7 @@ private:
   enum STATUS { STATUS_WAITING, STATUS_OK };
   enum MODE { MODE_ACTIVE, MODE_PASSIVE };
 
-  uint8_t _payload[18];				// For data 18 bytes as in datasheet.
+  uint8_t _payload[18];				// For data 18 bytes.
   Stream* _stream;
   DATA* _data;
   STATUS _status;

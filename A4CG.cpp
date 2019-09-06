@@ -46,6 +46,42 @@ void A4CG::requestRead()
   }
 }
 
+// Set scale up or scale down for output
+void A4CG::setScale(float setc)
+{
+	int i;
+	uint16_t checkSum, setScale;
+	
+	if(setc > 60)
+		setc = 60;
+	else if(setc < 1)
+		setc = 1;
+	
+	setScale = (uint16_t) (setc * 1000);
+	uint8_t command[] = { 0x33, 0x3E, 0x00, 0x0C, 0xE6, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+	
+	// Set the scale value on array 6 and 7.
+	command[6] = (uint8_t) ((setScale & 0xFF00) >> 8);
+	command[7] = (uint8_t) setScale & 0xFF;
+
+	// Calculate checksum on array 0..13. Then place checksum on array 14,15.
+	for(i=0, checkSum=0;i < 8; i++)
+		checkSum += (uint8_t) command[i];
+	command[14] = (uint8_t) ((checkSum & 0xFF00) >> 8);
+	command[15] = (uint8_t) checkSum & 0xFF;
+/*
+	Serial.print(checkSum, HEX);
+	Serial.print(": ");
+	for(i=0;i < 16; i++)	{
+		Serial.print("0x");
+		Serial.print(command[i], HEX);
+		Serial.print(" ");
+	}
+	Serial.println();
+*/	
+	_stream->write(command, sizeof(command));	
+}
+
 // Non-blocking function for parse response.
 bool A4CG::read(DATA& data)
 {
